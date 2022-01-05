@@ -36,6 +36,9 @@
 												<label for="inputName" class="col-md-3 col-form-label">Category Name</label>
 												<div class="col-md-9">
 													<input type="text" class="form-control" id="name" name="name" placeholder="Category Name" value="{{ $category['name'] }}">
+													@if($errors -> has('name'))
+                                            			<span class="text-danger">{{ $errors ->first('name') }}
+                                        			@endif 
 													<input type="hidden" name="id" value="{{ $category['id'] }}" >
 												</div>
 											</div>

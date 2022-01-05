@@ -90,6 +90,9 @@
                                         <label>Categary Name<span style="color:red"> *</span></label>
                                         <input type="text" name="name" id="name" class="form-control"
                                             placeholder="categary Name" />
+                                        @if($errors -> has('name'))
+                                            <span class="text-danger">{{ $errors ->first('name') }}
+                                        @endif     
                                     </div>
                                 </div>
                             </div>

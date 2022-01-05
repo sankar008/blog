@@ -49,9 +49,9 @@
                                     </td>
 
                                     <td style="color: black;"><a
-                                            href="{{ URL('/admin/subcategory/upate/'.$item -> id) }}"><i
+                                            href="{{ URL('/admin/subcategory-update/'.$item -> id) }}"><i
                                                 class="fa fa-pencil-square" aria-hidden="true"></i></a> | <a
-                                            href="{{ URL('/admin/subcategory/delete/'.$item -> id) }}"
+                                            href="{{ URL('/admin/subcategory-delete/'. $item -> id) }}"
                                             onclick="return confirm('Do you really want to delete this data?')"><i
                                                 class="fa fa-trash-o" aria-hidden="true"></i></a>
                                     </td>
@@ -91,6 +91,9 @@
                                                <option value="{{ $item ->id }}" >{{ $item ->name }}</option>
                                             @endforeach
                                         </select>
+                                        @if($errors -> has('category_id'))
+                                            <span class="text-danger">{{ $errors ->first('category_id') }}
+                                        @endif        
                                     </div>
                                 </div>
                             </div>
@@ -101,6 +104,9 @@
                                         <label>Sub-Category Name<span style="color:red"> *</span></label>
                                         <input type="text" name="name" id="name" class="form-control"
                                             placeholder="Subcategory Name" />
+                                        @if($errors -> has('name'))
+                                            <span class="text-danger">{{ $errors ->first('name') }}
+                                        @endif     
                                     </div>
                                 </div>
                             </div>
