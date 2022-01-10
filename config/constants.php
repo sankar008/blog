@@ -15,6 +15,11 @@
     'OLD_PASSWORD_ERROR' => 'Your old Password does not match',
     'PASSWORD_CHANGE_ERROR' => 'Password changed unsuccessful',
     'PASSWORD_CHANGE_SUCCESS' => 'Password has been changed successfully',
-    'PASSWORD_CONFIRM_ERROR' => 'New Password and Confirm Password does not match'
+    'PASSWORD_CONFIRM_ERROR' => 'New Password and Confirm Password does not match',
+    'BLOG_SUCCESS' => 'Blogs has been added successfully',
+    'BLOG_ERROR' => 'Blogs add unsuccessful',
+    'DUPLICATE_BLOG_TITLE' => 'Blog Title already exists',
+    'BLOG_UPDATE_ERROR' => 'Blog Details update unsuccessfull',
+    'UPDATE_SUCCESS_BLOG' => 'Blog Details has been updated successfully'
     ];
 ?>

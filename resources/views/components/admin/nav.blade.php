@@ -20,11 +20,11 @@
 							</ul>
 						</li>
 
-						<li class="slide">
+						<!-- <li class="slide">
 							<a class="side-menu__item"  href="{{ URL::to('admin/user') }}"><i class="side-menu__icon fa fa-cube"></i><span class="side-menu__label">User</span><span class="badge badge-orange nav-badge"></span></a>
 							<ul class="slide-menu">
 							</ul>
-						</li>
+						</li> -->
 
 						<li class="slide">
 							<a class="side-menu__item"  href="{{ URL::to('admin/category-list') }}"><i class="side-menu__icon fa fa-cube"></i><span class="side-menu__label">Category</span><span class="badge badge-orange nav-badge"></span></a>
@@ -39,13 +39,13 @@
 						</li>
 
 						<li class="slide">
-							<a class="side-menu__item"  href="{{ URL::to('admin/blog') }}"><i class="side-menu__icon fa fa-cube"></i><span class="side-menu__label">Blog</span><span class="badge badge-orange nav-badge"></span></a>
+							<a class="side-menu__item"  href="{{ URL::to('admin/blog-list') }}"><i class="side-menu__icon fa fa-cube"></i><span class="side-menu__label">Blog</span><span class="badge badge-orange nav-badge"></span></a>
 							<ul class="slide-menu">
 							</ul>
 						</li>
 
 
-						<li class="slide is-expanded">
+						<!--<li class="slide is-expanded">
                             <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-cogs"></i><span class="side-menu__label">Master
                                     Menu</span><i class="angle fa fa-angle-right"></i></a>
                             <ul class="slide-menu">
@@ -53,7 +53,7 @@
                                     <a class="side-menu__item" href="{{ URL::to('admin/user-privilege') }}"><span class="side-menu__label">User Privilege</span></a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
 
 						<li class="slide">
 							<a class="side-menu__item"  href="{{ URL::to('admin/company') }}"><i class="side-menu__icon fa fa-cube"></i><span class="side-menu__label">Company</span><span class="badge badge-orange nav-badge"></span></a>

@@ -24,9 +24,7 @@
                         </h4>
                     </div>
                     <div class="card-body">
-                        <!-- @foreach($errors -> all() as $errvalue)
-                        <span style="color:red">{{ $errvalue }}</span>
-                        @endforeach -->
+                        
 
                         <div style="color:green; padding-left:50px ">{{ Session::get('successmsg') }}</div>
                         <div style="color:red; padding-left:50px ">{{ Session::get('errmsg') }}</div>

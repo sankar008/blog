@@ -8,6 +8,8 @@ use App\Http\Controllers\admin\ForgotPasswordController;
 use App\Http\Controllers\admin\ChangePasswordController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\SubCategoryController;
+use App\Http\Controllers\admin\BlogController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +27,7 @@ Route::get('/', function () {
 });
 Route::prefix('/admin')-> group(function(){
     Route::post('/login', [UserController::class, 'login']);
-    Route::get('/dashboard', [UserController::class, 'dashboard']);
+    Route::get('/dashboard', [UserController::class, 'dashboard']) -> middleware('check_status');
     Route::get('/logout', [UserController::class, 'logout']);
 
     Route::get('/forgot-password',[ForgotPasswordController::class, 'forgotPasswordForm']);
@@ -36,30 +38,37 @@ Route::prefix('/admin')-> group(function(){
     Route::post('/reset-email-password', [ForgotPasswordController::class, 'reset_password']);
 
 
-    Route::get('/company',[CompanyController::class,'list']);
-    Route::get('/company/upate/{id}',[CompanyController::class,'update']);
-    Route::post('/company/update',[CompanyController::class,'update']);
+    Route::get('/company',[CompanyController::class,'list']) -> middleware('check_status');
+    Route::get('/company/upate/{id}',[CompanyController::class,'update']) -> middleware('check_status');
+    Route::post('/company/update',[CompanyController::class,'update']) -> middleware('check_status');
 
-    Route::get('/company/about-us',[AboutUsController::class,'aboutUsUpdate']);
-    Route::get('/company/about-us/update/{id}',[AboutUsController::class,'update']);
-    Route::post('/company/about-us/update',[AboutUsController::class,'update']);
+    Route::get('/company/about-us',[AboutUsController::class,'aboutUsUpdate']) -> middleware('check_status');
+    Route::get('/company/about-us/update/{id}',[AboutUsController::class,'update']) -> middleware('check_status');
+    Route::post('/company/about-us/update',[AboutUsController::class,'update']) -> middleware('check_status');
 
-    Route:: get('/change-password', [ChangePasswordController::class, 'change_password']);
-    Route:: post('/change-password', [ChangePasswordController::class, 'change_password']);
+    Route:: get('/change-password', [ChangePasswordController::class, 'change_password']) -> middleware('check_status');
+    Route:: post('/change-password', [ChangePasswordController::class, 'change_password']) -> middleware('check_status');
 
-    Route::get('/category-list', [CategoryController::class, 'category_list']);
-    Route::get('/category-add', [CategoryController::class, 'category_add']);
-    Route::post('/category-add', [CategoryController::class, 'category_add']);
-    Route::get('/category-update/{id}', [CategoryController::class, 'category_update']);
-    Route::post('/category-update', [CategoryController::class, 'category_update']);
-    Route::get('/category-delete/{id}', [CategoryController::class, 'category_delete']);
+    Route::get('/category-list', [CategoryController::class, 'category_list']) -> middleware('check_status');
+    Route::get('/category-add', [CategoryController::class, 'category_add']) -> middleware('check_status');
+    Route::post('/category-add', [CategoryController::class, 'category_add']) -> middleware('check_status');
+    Route::get('/category-update/{id}', [CategoryController::class, 'category_update']) -> middleware('check_status');
+    Route::post('/category-update', [CategoryController::class, 'category_update']) -> middleware('check_status');
+    Route::get('/category-delete/{id}', [CategoryController::class, 'category_delete']) -> middleware('check_status');
 
-    Route::get('/subcategory-list', [SubCategoryController::class, 'sub_category_list']);
-    Route::get('/subcategory-add', [SubCategoryController::class, 'sub_category_add']);
-    Route::post('/subcategory-add', [SubCategoryController::class, 'sub_category_add']);
-    Route::get('/subcategory-update/{id}', [SubCategoryController::class, 'sub_category_update']);
-    Route::post('/subcategory-update', [SubCategoryController::class, 'sub_category_update']);
-    Route::get('/subcategory-delete/{id}', [SubCategoryController::class, 'sub_category_delete']);
+    Route::get('/subcategory-list', [SubCategoryController::class, 'sub_category_list']) -> middleware('check_status');
+    Route::get('/subcategory-add', [SubCategoryController::class, 'sub_category_add']) -> middleware('check_status');
+    Route::post('/subcategory-add', [SubCategoryController::class, 'sub_category_add']) -> middleware('check_status');
+    Route::get('/subcategory-update/{id}', [SubCategoryController::class, 'sub_category_update']) -> middleware('check_status');
+    Route::post('/subcategory-update', [SubCategoryController::class, 'sub_category_update']) -> middleware('check_status');
+    Route::get('/subcategory-delete/{id}', [SubCategoryController::class, 'sub_category_delete']) -> middleware('check_status');
+
+    Route::get('/blog-list', [BlogController :: class, 'blog_list']);
+    Route::get('/blog-add', [BlogController :: class, 'blog_add']);
+    Route::post('/blog-add', [BlogController :: class, 'blog_add']);
+    Route::get('/blog-update/{id}', [BlogController :: class, 'blog_update']);
+    Route::post('/blog-update', [BlogController :: class, 'blog_update']);
+    Route::get('/blog-delete/{id}', [BlogController :: class, 'blog_delete']);
 
 
 

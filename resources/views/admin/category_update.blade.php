@@ -32,6 +32,8 @@
 									<span id="errmsg" style="color:red"></span>
 										<form class="form-horizontal"  action="{{ url('/admin/category-update') }}" method='POST' onsubmit="return valid();" >
                                         @csrf
+											<div style="color:red">{{ Session :: get('errmsg') }}</div>
+											<div style="color:green">{{ Session :: get('successmsg') }}</div>
 											<div class="form-group row">
 												<label for="inputName" class="col-md-3 col-form-label">Category Name</label>
 												<div class="col-md-9">

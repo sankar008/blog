@@ -67,7 +67,7 @@ class SubCategoryController extends Controller
                     'category_id' => $request -> category_id,
                     'name' => $request -> name
                 ]);
-                die;
+                
                 if($update) {
                     return redirect :: to('/admin/subcategory-list') -> with('successmsg', 'Subcategory has been updated successfully');
                 } else {

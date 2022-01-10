@@ -62,7 +62,7 @@ class CategoryController extends Controller
                     return redirect :: to('/admin/category-list') -> with('errmsg', 'Category update unsuccessful');
                 }
             } else {
-                return redirect :: to('/admin/category-list') -> with('errmsg', 'Category already exists'); 
+                return redirect :: to('/admin/category-update/'.$request -> id) -> with('errmsg', 'Category already exists'); 
             }
         }
     }

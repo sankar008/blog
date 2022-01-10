@@ -53,7 +53,7 @@
                             <div class="row">
                                 <div class="col-md-12 col-xs-6">
                                     <div class="form-group">
-                                        <label>Sub-Categary Name<span style="color:red"> *</span></label>
+                                        <label>Sub-Category Name<span style="color:red"> *</span></label>
                                         <input type="text" name="name" id="name" class="form-control" value="{{ $subcategory->name }}" />
                                         @if($errors -> has('name'))
                                             <span class="text-danger">{{ $errors -> first('name') }}</span>
