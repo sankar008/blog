@@ -34,6 +34,33 @@
                                     <div style="color:red">{{ Session::get('errmsg') }}</div>
                                     <div style="color:green">{{ Session::get('successmsg') }}</div>
 
+                                    <div class="row">
+                                <div class="col-md-12 col-xs-6">
+                                    <div class="form-group">
+                                        <label>Category<span style="color:red"> *</span></label>
+                                        <select type="text" name="category_id" id="category_id" class="form-control" onchange="getSubCategory()" >
+                                            <option value="">Select A Category</option>
+                                            @foreach($category as $item)
+                                               <option value="{{ $item ->id }}" {{ $item->id == old('category_id')?"selected":''}}>{{ $item ->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12 col-xs-6">
+                                    <div class="form-group">
+                                        <label>Sub Category<span style="color:red"> *</span></label>
+                                        <select type="text" name="subcategory_id" id="subcategory_id" class="form-control" >
+                                            <option value="">Select A Subcategory</option>
+                                                    
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+
 
                                     <div class="row">
                                 <div class="col-md-12 col-xs-6">
@@ -46,6 +73,7 @@
                                     </div>
                                 </div>
                             </div>
+                            
 
                             <div class="row">
                                 <div class="col-md-12 col-xs-6">
@@ -102,39 +130,47 @@
 
 <script>
 
-    /* function getSubCategary(){
-            var data =$('#categary_id').val();
+    function getSubCategory(){
+            var data =$('#category_id').val();
             $.ajax({
             type: "GET",
-            url: "/admin/blog/getSubCategary",
+            url: "/admin/blog/getSubCategory",
             data: {
-                categary_id: data
+                category_id: data
             },
             success: function(response) {
-               $("#subcategary_id").html(response);
+               $("#subcategory_id").html(response);
                 
             }
         });
-    } */
+    } 
 
 
 
    function valid() {
-            if ($("#title").val() == '') {
-                $("#errmsg").html("Please Enter A Title");
-                //$("#email").css("border-color", "red");
+            if ($("#category_id").val() == '') {
+                $("#errmsg").html("Please Enter A Category");
+                
                 return false;
+            }else if ($("#subcategory_id").val() == '') {
+                $("#errmsg").html("Please Enter A Subcategory");
+                
+                return false;   
+            }else if ($("#title").val() == '') {
+                $("#errmsg").html("Please Enter A Title");
+                
+                return false;     
             }else if ($("#short_description").val() == '') {
                 $("#errmsg").html("Please Enter Short Description");
-                //$("#email").css("border-color", "red");
+                
                 return false;
             } else if ($("#description").val() == '') {
                 $("#errmsg").html("Please Enter Description");
-                //$("#email").css("border-color", "red");
+               
                 return false;
             } else if ($("#image").val() == '') {
                 $("#errmsg").html("Please Upload A Image");
-                //$("#email").css("border-color", "red");
+                
                 return false;
             }
         }

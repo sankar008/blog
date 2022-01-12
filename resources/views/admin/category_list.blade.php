@@ -72,7 +72,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterLabel">Add Categary</h5>
+                <h5 class="modal-title" id="exampleModalCenterLabel">Add Category</h5>
                 <button type="button" class="close" onclick="flush_val()" data-dismiss="modal" aria-label="Close"><span
                         aria-hidden="true">&times;</span></button>
             </div>
@@ -86,8 +86,8 @@
                                 <div class="col-md-6 col-xs-6">
                                     <div class="form-group">
                                         <label>Categary Name<span style="color:red"> *</span></label>
-                                        <input type="text" name="name" id="name" class="form-control"
-                                            placeholder="categary Name" />
+                                        <input type="text" name="name" id="name" class="form-control" value = "{{ old('name') }}"
+                                            placeholder="category Name" />
                                         @if($errors -> has('name'))
                                             <span class="text-danger">{{ $errors ->first('name') }}
                                         @endif     

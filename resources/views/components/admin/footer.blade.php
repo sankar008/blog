@@ -1,7 +1,7 @@
 				<!--Footer-->
 				<footer class="main-footer">
 					<div class="text-center">
-						Copyright ©Splite 2019. Design By<a href=""> Supriti</a>
+						Copyright ©Splite 2021. Blog Project Design By<a href=""> WebArt Technology</a>
 					</div>
 				</footer>
 				<!--/Footer-->

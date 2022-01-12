@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\admin\Category;
 use Illuminate\Support\Facades\Redirect;
+use Config;
 
 class CategoryController extends Controller
 {
@@ -30,14 +31,14 @@ class CategoryController extends Controller
                 ]);
                 $category -> save();
                 if($category -> save()) {
-                    return redirect :: to('/admin/category-list') -> with('successmsg', 'Category has been added successfully');
+                    return redirect :: to('/admin/category-list') -> with('successmsg', Config::get('constants.CATEGORY_ADD_SUCCESS'));
 
                 } else {
-                    return redirect :: to('/admin/category-list') -> with('errmsg', 'Category added unsuccessful');
+                    return redirect :: to('/admin/category-list') -> with('errmsg', Config::get('constants.CATEGORY_ADD_ERROR')) -> withInput($request -> all);
                 }
             }
             else {
-                return redirect :: to('/admin/category-list') -> with('errmsg', 'Category already exists');
+                return redirect :: to('/admin/category-list') -> with('errmsg', Config::get('constants.CATEGORY_DUPLICATE_ERROR')) -> withInput($request -> all);
             }
                
         }
@@ -57,12 +58,12 @@ class CategoryController extends Controller
                     'name' => $request -> name
                 ]);
                 if($update) {
-                    return redirect :: to('/admin/category-list') -> with('successmsg', 'Category updated successfully');
+                    return redirect :: to('/admin/category-list') -> with('successmsg', Config::get('constants.CATEGORY_UPDATE_SUCCESS'));
                 } else {
-                    return redirect :: to('/admin/category-list') -> with('errmsg', 'Category update unsuccessful');
+                    return redirect :: to('/admin/category-list') -> with('errmsg', Config::get('constants.CATEGORY_UPDATE_ERROR'));
                 }
             } else {
-                return redirect :: to('/admin/category-update/'.$request -> id) -> with('errmsg', 'Category already exists'); 
+                return redirect :: to('/admin/category-update/'.$request -> id) -> with('errmsg', Config::get('constants.CATEGORY_DUPLICATE_ERROR')); 
             }
         }
     }

@@ -35,6 +35,41 @@
                                     <div style="color:green">{{ Session::get('successmsg') }}</div>
 
 
+                                    <div class="row">
+                                            <div class="col-md-12 col-xs-6">
+                                                <div class="form-group">
+                                                    <label>Category<span style="color:red"> *</span></label>
+                                                    <select type="text" name="category_id" id="category_id" class="form-control" onchange="getSubCategory()" >
+                                                        <option value=" ">Select A Category</option>
+                                                        @foreach($category as $item)
+                                                        <option value="{{ $item ->id }}"{{ $item ->id == $blog->category_id?"selected":"" }} >{{ $item ->name }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    @if ($errors->has('category_id'))
+                                                        <span class="text-danger">{{ $errors->first('category_id') }}</span>
+                                                    @endif
+                                                </div>
+                                             </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-12 col-xs-6">
+                                                <div class="form-group">
+                                                    <label>Sub Category<span style="color:red"> *</span></label>
+                                                    <select type="text" name="subcategory_id" id="subcategory_id" class="form-control"  >
+                                                        <option value=" ">Select A Subcategory</option>
+                                                        @foreach($subcategory as $item)
+                                                        <option value="{{ $item ->id }}" {{ $item ->id == $blog->subcategory_id?"selected":"" }}  >{{ $item->name }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    @if ($errors->has('subcategory_id'))
+                                                        <span class="text-danger">{{ $errors->first('subcategory_id') }}</span>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </div>
+
+
                                         <div class="row">
                                             <div class="col-md-12 col-xs-6">
                                                 <div class="form-group">
@@ -102,27 +137,35 @@
 <script>
 
 
-/*function getSubCategary(){
-                var data =$('#categary_id').val();
+function getSubCategory(){
+                var data =$('#category_id').val();
                 $.ajax({
                     type: "GET",
-                    url: "/admin/blog/getSubCategary",
+                    url: "/admin/blog/getSubCategory",
                     data: {
-                        categary_id: data
+                        category_id: data
                     },
                     success: function(response) {
-                    $("#subcategary_id").html(response);
+                    $("#subcategory_id").html(response);
                         
                     }
                 });
-            } */
+            } 
 
 
 
 
 
    function valid() {
-            if ($("#title").val() == '') {
+             if ($("#category_id").val() == '') {
+                $("#errmsg").html("Please Enter A Category");
+                
+                return false;
+            }else if ($("#subcategory_id").val() == '') {
+                $("#errmsg").html("Please Enter A Sub Category Name");
+               
+                return false;
+            }else if ($("#title").val() == '') {
                 $("#errmsg").html("Please Enter A Blog Title");
                 
                 return false;

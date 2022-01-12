@@ -2,7 +2,7 @@
 
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Webart Technology - Admin Login</title>
+		<title>{{ config('app.name') }} - Admin Login</title>
 
 		<!--Favicon -->
 		<link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -38,7 +38,10 @@
 								<div class="wrapper wrapper2">
 									<form id="login" action="{{ URL::to('admin/login') }}" method="post" onsubmit="return valid();"  class="card-body" tabindex="500">
                                     @csrf
-										<h3 class="text-dark">Login</h3>
+									<div class="">
+                                            <img src="{{ asset('uploads/user logo.jpg') }}" width="120px" alt="Logo" />
+                                        </div>
+										<h3 class="text-dark">Admin Login</h3>
                                         <span style="color:red" id="errmsg">{{ Session::get('errmsg') }}</span>
 										<span style="color:green" id="successmsg">{{ Session::get('successmsg') }}</span>
                                         <!-- <span style="color:red" id="errmsg"></span> -->
@@ -68,6 +71,12 @@
 									
 								</div>
 							</div>
+							<div class="login-footer">
+                                <br>
+                                <div class="text-center">
+                                    &copy; {{ config('app.name') }} 2021
+                                </div>
+                            </div>
 						</div>
 						<!--single-page closed-->
 

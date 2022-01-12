@@ -16,10 +16,16 @@
     'PASSWORD_CHANGE_ERROR' => 'Password changed unsuccessful',
     'PASSWORD_CHANGE_SUCCESS' => 'Password has been changed successfully',
     'PASSWORD_CONFIRM_ERROR' => 'New Password and Confirm Password does not match',
-    'BLOG_SUCCESS' => 'Blogs has been added successfully',
-    'BLOG_ERROR' => 'Blogs add unsuccessful',
-    'DUPLICATE_BLOG_TITLE' => 'Blog Title already exists',
-    'BLOG_UPDATE_ERROR' => 'Blog Details update unsuccessfull',
-    'UPDATE_SUCCESS_BLOG' => 'Blog Details has been updated successfully'
+    'BLOG_ADD_SUCCESS' => 'Blogs Data has been added successfully',
+    'BLOG_ADD_ERROR' => 'Blogs Data add unsuccessful',
+    'BLOG_TITLE_DUPLICATE_ERROR' => 'Blog Title already exists',
+    'BLOG_UPDATE_ERROR' => 'Blogs Data update unsuccessfull',
+    'BLOG_UPDATE_SUCCESS' => 'Blogs Data has been updated successfully',
+    'SUBCATEGORY_DUPLICATE_ERROR' => 'Subcategory already exists',
+    'CATEGORY_DUPLICATE_ERROR' => 'Category already exists',
+    'CATEGORY_ADD_SUCCESS' => 'Category has been added successfully',
+    'CATEGORY_ADD_ERROR' => 'Category add unsuccessful',
+    'CATEGORY_UPDATE_ERROR' => 'Category update unsuccessfull',
+    'CATEGORY_UPDATE_SUCCESS' => 'Category has been updated successfully',
     ];
 ?>

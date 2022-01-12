@@ -62,13 +62,16 @@ Route::prefix('/admin')-> group(function(){
     Route::get('/subcategory-update/{id}', [SubCategoryController::class, 'sub_category_update']) -> middleware('check_status');
     Route::post('/subcategory-update', [SubCategoryController::class, 'sub_category_update']) -> middleware('check_status');
     Route::get('/subcategory-delete/{id}', [SubCategoryController::class, 'sub_category_delete']) -> middleware('check_status');
+    
 
-    Route::get('/blog-list', [BlogController :: class, 'blog_list']);
-    Route::get('/blog-add', [BlogController :: class, 'blog_add']);
-    Route::post('/blog-add', [BlogController :: class, 'blog_add']);
-    Route::get('/blog-update/{id}', [BlogController :: class, 'blog_update']);
-    Route::post('/blog-update', [BlogController :: class, 'blog_update']);
-    Route::get('/blog-delete/{id}', [BlogController :: class, 'blog_delete']);
+
+    Route::get('/blog-list', [BlogController :: class, 'blog_list']) -> middleware('check_status');
+    Route::get('/blog-add', [BlogController :: class, 'blog_add']) -> middleware('check_status');
+    Route::post('/blog-add', [BlogController :: class, 'blog_add']) -> middleware('check_status');
+    Route::get('/blog-update/{id}', [BlogController :: class, 'blog_update']) -> middleware('check_status');
+    Route::post('/blog-update', [BlogController :: class, 'blog_update']) -> middleware('check_status');
+    Route::get('/blog-delete/{id}', [BlogController :: class, 'blog_delete']) -> middleware('check_status');
+    Route::get('/blog/getSubCategory', [BlogController::class, 'getSubCategory']) -> middleware('check_status');
 
 
 

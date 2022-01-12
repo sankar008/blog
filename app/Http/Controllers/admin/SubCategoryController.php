@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\admin\Subcategory;
 use App\Models\admin\Category;
 use Illuminate\Support\Facades\Redirect;
+use Config;
 
 class SubCategoryController extends Controller
 {
@@ -36,13 +37,13 @@ class SubCategoryController extends Controller
                 ]);
                 $subcategory -> save();
                 if($subcategory -> save()) {
-                    return redirect :: to('/admin/subcategory-list') -> with('successmsg', 'Subcategory has been added successfully');
+                    return redirect :: to('/admin/subcategory-list') -> with('successmsg', Config::get('constants.ADD_SUCCESS'));
 
                 } else {
-                    return redirect :: to('/admin/subcategory-list') -> with('errmsg', 'Subcategory added unsuccessful');
+                    return redirect :: to('/admin/subcategory-list') -> with('errmsg', Config::get('constants.ADD_ERROR')) -> withInput($request -> all);
                 }
             } else {
-                return redirect :: to('/admin/subcategory-list') -> with('errmsg', 'Subcategory already exists');
+                return redirect :: to('/admin/subcategory-list') -> with('errmsg', Config::get('constants.SUBCATEGORY_DUPLICATE_ERROR')) -> withInput($request -> all);
             }
         
         }
@@ -61,7 +62,7 @@ class SubCategoryController extends Controller
                 'name' => 'required'
             ]);
           
-            $duplicateCheck =  Subcategory::where('name',$request->name)->count();
+            $duplicateCheck =  Subcategory::where('name',$request->name)-> where('id', '!=', $request->id) -> count();
             if($duplicateCheck == 0) {
                 $update = Subcategory :: where('id', $request -> id) -> update([
                     'category_id' => $request -> category_id,
@@ -69,12 +70,12 @@ class SubCategoryController extends Controller
                 ]);
                 
                 if($update) {
-                    return redirect :: to('/admin/subcategory-list') -> with('successmsg', 'Subcategory has been updated successfully');
+                    return redirect :: to('/admin/subcategory-list') -> with('successmsg', Config::get('constants.UPDATE_SUCCESS'));
                 } else {
-                    return redirect :: to('/admin/subcategory-list') -> with('errmsg', 'Subcategory update unsuccessful');
+                    return redirect :: to('/admin/subcategory-list') -> with('errmsg', Config::get('constants.UPDATE_ERROR'));
                 }
             } else {
-                return redirect :: to('admin/subcategory-update/'.$request -> id) -> with('errmsg', 'Subcategory already exists');
+                return redirect :: to('admin/subcategory-update/'.$request -> id) -> with('errmsg', Config::get('constants.SUBCATEGORY_DUPLICATE_ERROR'));
             }
         }
     }
@@ -82,11 +83,12 @@ class SubCategoryController extends Controller
         if($request -> method() == 'GET') {
             $delete = Subcategory :: destroy($id);
             if($delete) {
-                return redirect :: to('/admin/subcategory-list') -> with('successmsg', 'Subcategory has been deleted successfully');
+                return redirect :: to('/admin/subcategory-list') -> with('successmsg', Config::get('constants.DELETE_SUCCESS'));
             } else {
-                return redirect :: to('/admin/subcategory-list') -> with('errmsg', 'Subcategory delete unsuccessful');
+                return redirect :: to('/admin/subcategory-list') -> with('errmsg', Config::get('constants.DELETE_ERROR'));
             }
         }
         
     }
+    
 }

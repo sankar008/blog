@@ -88,7 +88,7 @@
                                         <select type="text" name="category_id" id="category_id" class="form-control" >
                                             <option value="">Select A Category</option>
                                             @foreach($category as $item)
-                                               <option value="{{ $item ->id }}" >{{ $item ->name }}</option>
+                                               <option value="{{ $item ->id }}" {{ (old('category_id') == $item ->id ? "selected":"") }}>{{ $item ->name }}</option>
                                             @endforeach
                                         </select>
                                         @if($errors -> has('category_id'))
@@ -102,7 +102,7 @@
                                 <div class="col-md-12 col-xs-6">
                                     <div class="form-group">
                                         <label>Sub-Category Name<span style="color:red"> *</span></label>
-                                        <input type="text" name="name" id="name" class="form-control"
+                                        <input type="text" name="name" id="name" class="form-control" value="{{ old('name') }}"
                                             placeholder="Subcategory Name" />
                                         @if($errors -> has('name'))
                                             <span class="text-danger">{{ $errors ->first('name') }}

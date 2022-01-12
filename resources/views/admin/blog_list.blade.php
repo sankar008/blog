@@ -34,9 +34,10 @@
                             <thead>
                                 <tr>
                                     <th width="5%">ID</th>
+                                    <th width="15%">Category</th>  
+                                    <th width="15%">Sub Category</th>
                                     <th width="15%">Blog Tittle</th> 
-                                   <!-- <th width="15%">Categary</th>  
-                                    <th width="15%">Sub Categary</th> -->
+                                    
                                     <th width="15%">Short Description</th>
                                     <th width="15%">Description</th>  
                                     <th width="15%">Image</th>                            
@@ -47,10 +48,11 @@
                                 @foreach($blog as $item)
                                 <tr>
                                     <td style="color: black;">{{ $loop -> index + 1 }}</td>
+                                    <td style="color: black;">{{ $item -> category == ''?"-":$item -> category ->name }}</span></td>
+                                    <td style="color: black;">{{ $item -> subcategory == ''?"-":$item -> subcategory -> name }}</span></td>
                                     <td style="color: black;">{{ $item -> title }}</span></td>
                                     <td style="color: black;">{{ $item -> short_description }}</span></td>
-                                    <!--<td style="color: black;">{{ $item -> categary == ''?'':$item -> categary ->name }}</span></td> -->
-                                    <!-- <td style="color: black;">{{ $item -> subcategary == ''?'':$item -> subcategary -> name }}</span></td> -->
+                                    
                                     <td style="color: black;">{{ $item -> description }}</span></td>
                                     <td style="color: black;"><div class="img">
                                         <?php foreach (explode('|', $item->image) as $image) { ?>
