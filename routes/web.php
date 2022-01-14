@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\frontend\AboutUsController;
+use App\Http\Controllers\frontend\BlogController;
+use App\Http\Controllers\frontend\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/about-us', [AboutUsController::class, 'aboutus']);
+Route::get('/blog-detail/{id}', [BlogController::class, 'blog_detail']);
+Route::get('/', [HomeController::class, 'home']);

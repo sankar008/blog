@@ -22,7 +22,7 @@ use App\Http\Controllers\admin\BlogController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/admin', function () {
     return view('admin.login');
 });
 Route::prefix('/admin')-> group(function(){
@@ -73,10 +73,12 @@ Route::prefix('/admin')-> group(function(){
     Route::get('/blog-delete/{id}', [BlogController :: class, 'blog_delete']) -> middleware('check_status');
     Route::get('/blog/getSubCategory', [BlogController::class, 'getSubCategory']) -> middleware('check_status');
 
-
+ 
 
 
 
     
 
 });    
+
+

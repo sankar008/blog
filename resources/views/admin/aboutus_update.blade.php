@@ -61,7 +61,7 @@
                                             <div class="col-md-6 col-xs-6">
                                                 <div class="form-group">
                                                     <label>Details<span style="color:red"> *</span></label>
-                                                    <input type="text" name="details" id="details" class="form-control" value="{{ $aboutus -> details }}" />
+                                                    <textarea name="details" id="details" class="form-control" rows = "5">{{ $aboutus -> details }}</textarea>
                                                     @if($errors -> has('details'))
                                                         <span class="text-danger">{{ $errors -> first('details') }}</span>
                                                     @endif    

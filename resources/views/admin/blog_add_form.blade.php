@@ -44,6 +44,9 @@
                                                <option value="{{ $item ->id }}" {{ $item->id == old('category_id')?"selected":''}}>{{ $item ->name }}</option>
                                             @endforeach
                                         </select>
+                                        @if($errors -> has('category_id'))
+                                            <span class="text-danger">{{ $errors -> first('category_id') }}</span>
+                                        @endif  
                                     </div>
                                 </div>
                             </div>
@@ -56,6 +59,9 @@
                                             <option value="">Select A Subcategory</option>
                                                     
                                         </select>
+                                        @if($errors -> has('subcategory_id'))
+                                            <span class="text-danger">{{ $errors -> first('subcategory_id') }}</span>
+                                        @endif  
                                     </div>
                                 </div>
                             </div>

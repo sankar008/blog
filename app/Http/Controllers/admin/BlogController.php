@@ -77,7 +77,7 @@ class BlogController extends Controller
                     }
                 }    
             } else {
-                return redirect :: to('/admin/blog-add') -> with ('errmsg', 'Blog Title already exists') -> withInput($request -> all);
+                return redirect :: to('/admin/blog-add') -> with ('errmsg', Config::get('constants.BLOG_TITLE_DUPLICATE_ERROR')) -> withInput($request -> all);
             }
             
         }
@@ -148,7 +148,7 @@ class BlogController extends Controller
                     return redirect :: to ('/admin/blog-update/'.$request -> id) -> with('errmsg', Config::get('constants.UPDATE_ERROR'));
                 }
             } else {
-                return redirect :: to ('/admin/blog-update/'.$request -> id) -> with('errmsg', ('Blog Title already exists'));
+                return redirect :: to ('/admin/blog-update/'.$request -> id) -> with('errmsg', Config::get('constants.BLOG_TITLE_DUPLICATE_ERROR'));
             }
         }
 
