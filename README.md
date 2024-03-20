@@ -1,5 +1,5 @@
 <p align="center"><a href="https://laravel.com" target="_blank">
-   AIzaSyCIWsI05Y1t-Uz33ALG7LMW4x2CasUqyAU <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+AAAAXMpils4:APA91bHHL7VK3Y44cf-l-oqhhG-LUy7yTpj-CX1q8rV9hzHgo5AQWWhh-WFuh2SLw3AX16Wc8ejVwtGdnxe5yzejQKVbv5lxz5UrAQatYUaLMN7SeCWYbXmjCkxsGhNHfbBstBhPUV0c    <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
